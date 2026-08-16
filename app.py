@@ -5,6 +5,30 @@ import base64
 
 # Mengatur tampilan halaman
 st.set_page_config(page_title="Galeri Cosplay", layout="wide")
+# Menyembunyikan menu bawaan, toolbar GitHub (Fork), dan footer profil Streamlit
+hide_streamlit_style = """
+<style>
+    /* Memusnahkan Header, Toolbar, dan Menu atas secara absolut */
+    header {visibility: hidden !important; display: none !important;}
+    header[data-testid="stHeader"] {display: none !important;}
+    [data-testid="stToolbar"] {display: none !important;}
+    #MainMenu {visibility: hidden !important; display: none !important;}
+
+    /* Memusnahkan Footer secara absolut */
+    footer {visibility: hidden !important; display: none !important;}
+    footer[data-testid="stFooter"] {display: none !important;}
+    
+    /* Memusnahkan segala jenis tombol Deploy / Profil / GitHub Icon */
+    .stDeployButton {display: none !important;}
+    [data-testid="stAppDeployButton"] {display: none !important;}
+    .viewerBadge_container__1QSob {display: none !important;}
+
+    /* Mengatur ulang jarak atas agar tidak ada ruang kosong yang tersisa */
+    .stApp > header {background-color: transparent !important;}
+    .block-container {padding-top: 1.5rem !important;}
+</style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 # ---------------------------------------------------------
 # FUNGSI MEMBACA BYTE GAMBAR & MENGUBAHNYA KE BASE64
